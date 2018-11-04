@@ -195,7 +195,25 @@
         //     }
         // });
         // canvas.add(iTextSample);
-       
+       $(document).ready(function () {
+            $(".img-thumbnail").on("click", function () {
+                var src = $(this).attr("src");
+                var canvas = document.getElementById("editor"),
+                    context = canvas.getContext("2d");
+
+                make_base();
+
+                function make_base() {
+                    base_image = new Image();
+                    base_image.src = src;
+                    base_image.onload = function () {
+                        context.drawImage(base_image, 0, 0);
+                    };
+                }
+                //canvas.add(context);
+            });
+        });
+
     </script>
 </body>
 
